@@ -1,6 +1,54 @@
 // constructor word
 // depends on constructor letter 
 // used to create an object representing the cureent word user is guessing
+var fs = require('fs');
+var LetterC = require('./letter.js');
+
+var WordC = function(word) {
+    this.word = word;
+    this.letters = [];
+    this.match = false;
+
+    this.getLetters = function() {
+        for (var i = 0; i < this.word.length; i++) {
+            this.letters.push(new LetterC(this.word[i]));
+        }
+    };
+
+    this.matched = function() {
+        match = true;
+        for (var i = 0; i < this.letters.length; i++) {
+            if (this.letters[i].show == false) {
+                match = false;
+            }
+        }
+        return match;
+    };
+    
+    this.foundLetter = function(guessedLetter) {
+        var determine = 0;
+
+        for(var i = 0; i < this.letters.length; i++) {
+            if(this.letters[i].char == guessedLetter()) {
+                this.letters[i].show = true;
+                determine++;
+            }
+        }
+        return determin; 
+    };
+
+    this.wordRender = function() {
+        var str = '';
+
+        for (var i = 0; i < this.letters.length; i++) {
+            str += this.letters[i].returnLetter();
+        }
+        return str;
+    };
+};
+
+// export
+module.exports = WordC;
 
 // array of 'new' letter objects representing the letters of the underlying word
 
@@ -9,36 +57,3 @@
 
 // function that takes a character as an argument 
 // and calls the guess function on each letter object (2nd function letter.js)
-
-
-
-var Person = function(name) {
-    this.name = name;
-    this.yelling = false;
-  }
-  
-  Person.prototype.toString = function() {
-    var greeting = 'My name is ' + this.name;
-    
-    if(this.yelling) {
-      return greeting.toUpperCase();
-    }
-    
-    return greeting;
-  }
-  
-  var bob = new Person("Bob");
-  
-  // when concatenating with a string, JavaScript automatically calls `toString`
-  console.log(bob + '');
-  bob.yelling = true;
-  console.log(bob + '');
-  
-  var fred = new Person("Fred");
-  var sally = new Person("Sally");
-  
-  var personArray = [bob, fred, sally];
-  
-  // the same thing happens if we call `join` on a Person array: 
-    // JavaScript calls `toString` automatially on each person, then joins them together
-  console.log(personArray.join(', '));

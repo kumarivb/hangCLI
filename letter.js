@@ -1,4 +1,4 @@
-// constructor letter
+// constructor, letter
 // display underlying character or blank placeholder _, depending on wether or not user has guessed a letter
 function LetterC(letter) {    
     // string to store underlying character for the letter
@@ -7,15 +7,17 @@ function LetterC(letter) {
     this.guessed = false;
 
     // function that returns the underlying character if it has been guessed or _ if letter has not been guessed
+    this.returnLetter = function() {
+        if (this.guessed === true) {
+            return this.letter;
+        } else if (this.guessed === false) {
+            return " _ ";
+        } else (this.letter == " "); {      // added the semicolon after the () because i was getting an error without it
+            this.guessed = true;
+            return " ";
+        }
+    };
 };
 
-
-
-
-
-
-
-
-
-// function that takes a character as an argument and checks it against the underlying character
-// updating the stored boolean value to true if guessed correctly
+// export
+module.exports = LetterC;

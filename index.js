@@ -36,7 +36,14 @@ game = {
                 type: "input",
                 message: "Choose a letter: ",
             }
-        ])
+        ]).then(function (answer) {
+            if (answer.play) {
+                that.newGame();
+            } else {
+                console.log("fine be that way");
+                console.log(answer);
+            }
+        })
     },
 
     ltr: function(letter) {

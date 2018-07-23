@@ -1,4 +1,13 @@
-# hangCLI
-Hangman command line game
+# Hangman
 
-<p>JS Constructorsgit</p>
+### Description
+Hangman command line game.
+
+### New Skills
+* JS Constructors
+* Inquirer.js
+
+### Technologies
+* Node.js
+
+https://kumarivb.github.io/hangCLI/
